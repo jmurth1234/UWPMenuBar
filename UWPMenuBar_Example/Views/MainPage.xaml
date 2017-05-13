@@ -1,0 +1,84 @@
+﻿<Page x:Class="UWPMenuBar_Example.Views.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:controls="using:Template10.Controls"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:UWPMenuBar_Example.Views"
+      xmlns:lib="using:Rymate.Controls.UWPMenuBar"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:vm="using:UWPMenuBar_Example.ViewModels" mc:Ignorable="d">
+
+    <Page.DataContext>
+        <vm:MainPageViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+    <SplitView x:Name="SplitView" IsPaneOpen="{x:Bind ViewModel.PaneOpen, Mode=TwoWay}" DisplayMode="{x:Bind ViewModel.DisplayMode, Mode=TwoWay}" OpenPaneLength="240">
+        <SplitView.Pane>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWholeWords" TextAlignment="Center">
+                An example of a SplitView being used with a Menu Bar
+            </TextBlock>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <lib:MenuBar Grid.Row="0" Title="UWP MenuBar Demo" x:Name="MenuBar" VerticalAlignment="Top"
+                             Background="{x:Bind ViewModel.AccentColor}" Foreground="White" 
+                             TitleVisible="{x:Bind ViewModel.ShowTitle, Mode=TwoWay}">
+                    <lib:MenuBarButton x:Name="HamburgerButton" DisableDropdown="True" ButtonContent="&#xE700;" Icon="True" 
+                                       AccessKey="s" ButtonClicked="{x:Bind ViewModel.OpenPane}"/>
+
+                    <lib:MenuBarButton ButtonContent="File" AccessKey="f">
+                        <lib:MenuBarItem Text="New" />
+                        <lib:MenuBarItem Text="Open" />
+                        <lib:MenuBarItem Text="Save" />
+                        <MenuFlyoutSeparator />
+                        <lib:MenuBarItem Text="Exit"  />
+                    </lib:MenuBarButton>
+                    <lib:MenuBarButton ButtonContent="Items" AccessKey="i"  >
+                        <ScrollViewer MaxHeight="150" AllowFocusOnInteraction="False" 
+                                      VerticalScrollBarVisibility="Auto" KeyDown="ScrollViewer_KeyDown"
+                                      KeyUp="{x:Bind ViewModel.EnableScrolling}" PointerEntered="{x:Bind ViewModel.EnableScrolling}" >
+                            <ItemsControl ItemsSource="{x:Bind ViewModel.BindingDemo}" Grid.Column="0">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Vertical"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="x:String">
+                                        <lib:MenuBarItem Text="{x:Bind}" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                        <MenuFlyoutSeparator />
+                        <lib:MenuBarItem Text="Manage Items" Click="{x:Bind ViewModel.AddItem}"/>
+                    </lib:MenuBarButton>
+                    <lib:MenuBarButton ButtonContent="View" AccessKey="v" >
+                        <lib:MenuBarToggleItem Text="Inline SplitView" IsChecked="{x:Bind ViewModel.InlineSplitView, Mode=TwoWay}"/>
+                        <lib:MenuBarToggleItem Text="Inline Titlebar" IsChecked="{x:Bind ViewModel.InlineTitleBar, Mode=TwoWay}"/>
+                    </lib:MenuBarButton>
+                    <lib:MenuBarButton Icon="True" ButtonContent="&#xE10C;" VerticalContentAlignment="Top" Height="32" VerticalAlignment="Stretch" AccessKey="m" >
+                        <lib:MenuBarItem Text="Appearance"/>
+                        <lib:MenuBarItem Text="Behaviour"/>
+                        <MenuFlyoutSeparator />
+                        <lib:MenuBarItem Text="About"/>
+                    </lib:MenuBarButton>
+                </lib:MenuBar>
+
+                <StackPanel Grid.Row="1" Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="8">
+                        This is a sample app demonstrating the UWP MenuBar component
+                    </TextBlock>
+                    <ToggleButton Margin="8" IsChecked="{x:Bind ViewModel.ToggleTheme, Mode=TwoWay}" Content="Toggle Theme" AccessKey="t" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </SplitView.Content>
+    </SplitView>
+
+</Page>

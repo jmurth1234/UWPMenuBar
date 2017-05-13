@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Rymate.Controls.UWPMenuBar</id>
+    <version>1.0.0-beta1</version>
+    <title>UWP Menu Bar</title>
+    <authors>rymate1234</authors>
+    <owners>rymate1234</owners>
+    <licenseUrl>https://github.com/rymate1234/UWPMenuBar/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/rymate1234/UWPMenuBar/README.md</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Menu bar library for UWP</description>
+    <releaseNotes>Initial beta release of the UWP MenuBar.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>UWP Control MenuBar Menu Bar</tags>
+  </metadata>
+
+  <files>
+    <file src="bin\Release\Rymate.Controls.UWPMenuBar**" target="lib\uap10.0" />
+  </files>
+  
+</package>

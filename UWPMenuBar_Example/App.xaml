@@ -1,0 +1,33 @@
+﻿<common:BootStrapper x:Class="UWPMenuBar_Example.App"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:common="using:Template10.Common"
+                     xmlns:controls="using:Template10.Controls">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles\Custom.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="controls:CustomTitleBar">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="ButtonBackgroundColor" Value="Transparent" />
+                <Setter Property="ButtonForegroundColor" Value="White" />
+                <Setter Property="ButtonHoverBackgroundColor" Value="Gray" />
+                <Setter Property="ButtonHoverForegroundColor" Value="White" />
+                <Setter Property="ButtonInactiveBackgroundColor" Value="Transparent" />
+                <Setter Property="ButtonInactiveForegroundColor" Value="White" />
+                <Setter Property="ButtonPressedBackgroundColor" Value="Transparent" />
+                <Setter Property="ButtonPressedForegroundColor" Value="White" />
+                <Setter Property="Extended" Value="True" />
+                <Setter Property="ForegroundColor" Value="White" />
+                <Setter Property="InactiveBackgroundColor" Value="LightSteelBlue" />
+                <Setter Property="InactiveForegroundColor" Value="DimGray" />
+            </Style>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+
+
+</common:BootStrapper>
