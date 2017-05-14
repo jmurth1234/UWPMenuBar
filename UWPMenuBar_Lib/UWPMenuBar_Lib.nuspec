@@ -30,6 +30,7 @@
 
       The padding can be increased / decreased via the normal methods still.
     </description>
+    <summary>Small library to reimplement the menu bar in UWP</summary>
     <releaseNotes>In beta 2, MenuBarItems and MenuBarToggleItem close a menu bar menu when clicked.</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>UWP Control MenuBar Menu Bar</tags>
