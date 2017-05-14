@@ -16,6 +16,7 @@ using Windows.UI.ViewManagement;
 using Windows.ApplicationModel.Core;
 using Windows.UI;
 using Rymate.Controls.UWPMenuBar;
+using Windows.Foundation.Metadata;
 
 namespace UWPMenuBar_Example.ViewModels
 {
@@ -30,6 +31,14 @@ namespace UWPMenuBar_Example.ViewModels
             ApplicationViewTitleBar titlebar = ApplicationView.GetForCurrentView().TitleBar;
             titlebar.BackgroundColor = _AccentColor;
             titlebar.ButtonBackgroundColor = _AccentColor;
+
+            if (ApiInformation.IsApiContractPresent("Windows.Phone.PhoneContract", 1, 0))
+            {
+                var statusBar = StatusBar.GetForCurrentView();
+                statusBar.BackgroundColor = _AccentColor;
+                statusBar.ForegroundColor = Colors.White;
+                statusBar.BackgroundOpacity = 1;
+            }
 
             if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
             {

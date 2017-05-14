@@ -123,9 +123,12 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="MenuBar.targets" />
     <None Include="project.json" />
-    <None Include="UWPMenuBar_Lib.nuspec" />
+    <None Include="UWPMenuBar_Lib.nuspec">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers.cs" />
     <Compile Include="FloatingContent.cs" />
     <Compile Include="MenuBar.xaml.cs">
       <DependentUpon>MenuBar.xaml</DependentUpon>

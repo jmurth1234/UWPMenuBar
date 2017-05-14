@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Rymate.Controls.UWPMenuBar</id>
-    <version>1.0.0-beta1</version>
+    <version>1.0.0-beta2</version>
     <title>UWP Menu Bar</title>
     <authors>rymate1234</authors>
     <owners>rymate1234</owners>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/rymate1234/UWPMenuBar/README.md</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Menu bar library for UWP</description>
-    <releaseNotes>Initial beta release of the UWP MenuBar.</releaseNotes>
+    <releaseNotes>In beta 2, MenuBarItems and MenuBarToggleItem close a menu bar menu when clicked.</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>UWP Control MenuBar Menu Bar</tags>
   </metadata>

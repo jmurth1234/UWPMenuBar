@@ -25,7 +25,7 @@ namespace Rymate.Controls.UWPMenuBar
         /// </summary>
         public event TypedEventHandler<MenuBarButton, RoutedEventArgs> ButtonClicked;
 
-        private MenuBar ContainerMenu { get; set; }
+        internal MenuBar ContainerMenu { get; set; }
 
         internal static readonly DependencyProperty ButtonContentPropertyField =
             DependencyProperty.Register("ButtonContent", typeof(string), typeof(MenuBarButton), new PropertyMetadata(null));
@@ -148,14 +148,7 @@ namespace Rymate.Controls.UWPMenuBar
 
         private async void MenuBarButton_Loaded(object sender, RoutedEventArgs e)
         {
-            FrameworkElement elem = this;
-            while (elem != null && !(elem is MenuBar))
-            {
-                // Crawl up the Visual Tree.
-                elem = elem.Parent as FrameworkElement;
-            }
-
-            ContainerMenu = elem as MenuBar;
+            ContainerMenu = this.GetMenuBar();
             Button.Foreground = ContainerMenu.Foreground;
         }
 
