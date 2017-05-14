@@ -6,8 +6,8 @@
     <title>UWP Menu Bar</title>
     <authors>rymate1234</authors>
     <owners>rymate1234</owners>
-    <licenseUrl>https://github.com/rymate1234/UWPMenuBar/LICENSE.md</licenseUrl>
-    <projectUrl>https://github.com/rymate1234/UWPMenuBar/README.md</projectUrl>
+    <licenseUrl>https://github.com/rymate1234/UWPMenuBar/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/rymate1234/UWPMenuBar/blob/master/README.md</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Menu bar library for UWP</description>
     <releaseNotes>In beta 2, MenuBarItems and MenuBarToggleItem close a menu bar menu when clicked.</releaseNotes>
