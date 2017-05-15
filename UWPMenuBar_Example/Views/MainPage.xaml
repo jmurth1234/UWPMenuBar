@@ -13,6 +13,7 @@
     <Page.DataContext>
         <vm:MainPageViewModel x:Name="ViewModel" />
     </Page.DataContext>
+    
     <SplitView x:Name="SplitView" IsPaneOpen="{x:Bind ViewModel.PaneOpen, Mode=TwoWay}" DisplayMode="{x:Bind ViewModel.DisplayMode, Mode=TwoWay}" OpenPaneLength="240">
         <SplitView.Pane>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWholeWords" TextAlignment="Center">

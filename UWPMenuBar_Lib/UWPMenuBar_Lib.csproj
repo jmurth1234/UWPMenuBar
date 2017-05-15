@@ -137,6 +137,7 @@
       <DependentUpon>MenuBarButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="MenuBarItem.cs" />
+    <Compile Include="MenuVisiblityEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\UWPMenuBar_Lib.rd.xml" />
   </ItemGroup>

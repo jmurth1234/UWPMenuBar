@@ -25,6 +25,11 @@ namespace Rymate.Controls.UWPMenuBar
         /// </summary>
         public event TypedEventHandler<MenuBarButton, RoutedEventArgs> ButtonClicked;
 
+        /// <summary>
+        /// Event that's called when the menu is opened or closed
+        /// </summary>
+        public event TypedEventHandler<MenuBarButton, MenuVisiblityEventArgs> MenuVisiblityChanged;
+
         internal MenuBar ContainerMenu { get; set; }
 
         internal static readonly DependencyProperty ButtonContentPropertyField =
@@ -89,7 +94,6 @@ namespace Rymate.Controls.UWPMenuBar
             }
         }
 
-
         internal static readonly DependencyProperty DisableDropdownPropertyField =
             DependencyProperty.Register("DisableDropdown", typeof(bool), typeof(MenuBarButton), new PropertyMetadata(null));
 
@@ -109,6 +113,13 @@ namespace Rymate.Controls.UWPMenuBar
             new PropertyMetadata(null)
         );
 
+        internal static readonly DependencyProperty MenuVisiblePropertyField = DependencyProperty.Register(
+            "MenuVisible",
+            typeof(UIElementCollection),
+            typeof(bool),
+            new PropertyMetadata(null)
+        );
+
         public static DependencyProperty ChildrenProperty
         {
             get
@@ -116,6 +127,21 @@ namespace Rymate.Controls.UWPMenuBar
                 return ChildrenPropertyField;
             }
         }
+
+        public static DependencyProperty MenuVisibleProperty
+        {
+            get
+            {
+                return MenuVisiblePropertyField;
+            }
+        }
+
+        public bool MenuVisible
+        {
+            get { return (bool) GetValue(MenuVisiblePropertyField); }
+            private set { SetValue(MenuVisiblePropertyField, value); }
+        }
+
 
         /// <summary>
         /// The content of the dropdown opened by this menu bar
@@ -175,6 +201,9 @@ namespace Rymate.Controls.UWPMenuBar
             if (FloatingMenu.Visibility == Visibility.Collapsed)
             {
                 FloatingMenu.Visibility = Visibility.Visible;
+
+                AppearAnimation.Begin();
+
                 if (ContainerMenu != null) ContainerMenu.CurrentButton = this;
 
                 CurrentPosition = 0;
@@ -186,6 +215,9 @@ namespace Rymate.Controls.UWPMenuBar
                 FloatingMenu.Visibility = Visibility.Collapsed;
                 if (ContainerMenu != null) ContainerMenu.CurrentButton = null;
             }
+
+            MenuVisible = FloatingMenu.Visibility == Visibility.Visible;
+            MenuVisiblityChanged?.Invoke(this, new MenuVisiblityEventArgs(MenuVisible));
         }
 
         private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)
