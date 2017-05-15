@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Rymate.Controls.UWPMenuBar</id>
-    <version>1.0.0-beta2</version>
+    <version>1.0.0-beta3</version>
     <title>UWP Menu Bar</title>
     <authors>rymate1234</authors>
     <owners>rymate1234</owners>
@@ -31,7 +31,7 @@
       The padding can be increased / decreased via the normal methods still.
     </description>
     <summary>Small library to reimplement the menu bar in UWP</summary>
-    <releaseNotes>In beta 2, MenuBarItems and MenuBarToggleItem close a menu bar menu when clicked.</releaseNotes>
+    <releaseNotes>This beta release adds a small animation to the menu when it's opened.</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>UWP Control MenuBar Menu Bar</tags>
   </metadata>
