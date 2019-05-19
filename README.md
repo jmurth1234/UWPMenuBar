@@ -1,5 +1,8 @@
 UWP Menu Bar Control
 ====================
+
+**This project is no longer maintained as Microsoft made an official one**
+
 [![NuGet](https://img.shields.io/nuget/dt/Rymate.Controls.UWPMenuBar.svg)](https://www.nuget.org/packages/Rymate.Controls.UWPMenuBar/)
 
 [![Screenshot demonstrating the library](Screenshot.png)](https://rymate.co.uk/videos/video.php?id=a470130d39)
